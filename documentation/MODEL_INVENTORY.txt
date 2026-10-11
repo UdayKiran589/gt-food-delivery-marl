@@ -1,38 +1,52 @@
 GT Food Delivery — Research Model Inventory
 ============================================
 
-Model 1
--------
-Status: No verified deliverable currently included in this repository.
+Model 1 — MAPPO/PPO Baseline
+----------------------------
+Repository source:
+source/model1_baseline/GT_Model1_MAPPO_Baseline.ipynb
+Status: Notebook included. Dataset availability, environment setup,
+and independent rerun remain to be verified.
 
-Model 2 — MAPPO
----------------
-Research artifacts and experiments exist in the private working archive.
-Binary checkpoints are excluded from this public repository.
+Model 2 — MAPPO and Counterfactual Advantages
+---------------------------------------------
+Repository sources:
+source/model2_mappo/gt_model_v2_predict_checkpointed.ipynb
+source/model2_mappo/GT_Model2_Repair_and_Counterfactual_Ablations.ipynb
+Status: Research notebooks included. Required datasets, checkpoints,
+artifact paths, and reproduction of reported results remain to be verified.
+Binary checkpoints are excluded by default.
 
 Model 3 — Risk-Sensitive MAPPO
 ------------------------------
-Training logs and reported results exist in the working archive.
-The checkpoint/baseline discrepancy remains unresolved. Results are
-not presented as independently reproduced.
+Training logs and reported results exist in the research archive.
+The checkpoint/baseline discrepancy remains unresolved. No Model 3
+source notebook is currently included in this repository inventory.
+Results are not presented as independently reproduced.
 
 Model 4 — Adaptive Control
 --------------------------
-The research notebook is included in source/model4/.
-Kaggle-specific paths and the required Model 3 checkpoint dependency
-must be resolved before reproduction.
+Repository source:
+source/model4/GT_Model4_ADAPTIVE_LLM_RAG_CHECKPOINTED.ipynb
+Status: Notebook included. Kaggle-specific paths and a verified Model 3
+final checkpoint are required before reproduction.
 
-Model 5 — Explainability
-------------------------
-Feature-sensitivity, faithfulness, and counterfactual-analysis evidence
-exists in the working archive but is not included here as validated
-reproduction evidence.
+Model 5 — Explainability / Integrated Research Notebook
+-------------------------------------------------------
+Repository source:
+source/model5_integrated/GT_Project_Full_Model5_GitHub.ipynb
+Status: A cleaned publication copy is included. The original integrated
+notebook remains in the research archive. The copy preserves notebook
+cells and code while removing the exceptionally large download-button
+output. Other saved outputs remain. Upstream checkpoint dependencies
+and evidence-to-run provenance require further verification.
 
 Final integrated model
 ----------------------
-No independently validated final deliverable is currently included.
+No independently validated final deliverable is currently established.
 
 Publication note
 ----------------
-This inventory summarizes the current state of the public repository.
-It is not a claim that all archived experiments have been reproduced.
+This inventory records repository contents and known limitations.
+Notebook inclusion, saved outputs, or printed PASS messages do not
+establish independent reproduction or scientific validation.
