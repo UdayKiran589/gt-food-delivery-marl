@@ -1,0 +1,29 @@
+# Model weights and checkpoints
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.safetensors
+
+# Archives and compressed artifacts
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*secret*
+*credential*
+*api_key*
+*token*
+
+# Python and notebook temporary files
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# macOS
+.DS_Store

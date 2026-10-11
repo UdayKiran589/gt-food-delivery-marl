@@ -1,0 +1,38 @@
+GT Food Delivery — Research Model Inventory
+============================================
+
+Model 1
+-------
+Status: No verified deliverable currently included in this repository.
+
+Model 2 — MAPPO
+---------------
+Research artifacts and experiments exist in the private working archive.
+Binary checkpoints are excluded from this public repository.
+
+Model 3 — Risk-Sensitive MAPPO
+------------------------------
+Training logs and reported results exist in the working archive.
+The checkpoint/baseline discrepancy remains unresolved. Results are
+not presented as independently reproduced.
+
+Model 4 — Adaptive Control
+--------------------------
+The research notebook is included in source/model4/.
+Kaggle-specific paths and the required Model 3 checkpoint dependency
+must be resolved before reproduction.
+
+Model 5 — Explainability
+------------------------
+Feature-sensitivity, faithfulness, and counterfactual-analysis evidence
+exists in the working archive but is not included here as validated
+reproduction evidence.
+
+Final integrated model
+----------------------
+No independently validated final deliverable is currently included.
+
+Publication note
+----------------
+This inventory summarizes the current state of the public repository.
+It is not a claim that all archived experiments have been reproduced.
