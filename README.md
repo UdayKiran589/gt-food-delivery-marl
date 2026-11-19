@@ -1,8 +1,31 @@
 # GT Food Delivery: Multi-Agent Reinforcement Learning
 
+**GitHub repository:** https://github.com/UdayKiran589/gt-food-delivery-marl
+
 A research-oriented project exploring multi-agent reinforcement learning
 for food-delivery decisions, risk-sensitive control, LLM/RAG-guided
 policies, and explainability.
+
+## Paper
+
+**Risk-Aware Multi-Agent Decision-Making for Competitive Food Delivery
+Platforms: Integrating MAPPO, Distributional Reinforcement Learning,
+Adaptive Risk, LLM/RAG Guidance, and Explainable AI** (IEEE conference format)
+
+Authors: Uday Kiran, Santhosh, Rathan, Samhitha, and Dr. Nitesh Funde,
+Department of Artificial Intelligence, SVNIT Surat, India.
+
+| File | Contents |
+|---|---|
+| `paper/main.tex` | Full manuscript: Introduction, Related Work, Datasets, Models 1–5, Integrated System, Findings, Conclusion, 25 references |
+| `paper/main_short.tex` | Condensed version of the same paper (about 3,400 words) |
+| `paper/figures/` | Result figures (PDF and PNG) |
+| `paper/make_figures.py` | Script that regenerates the figures from archived results |
+
+To build on Overleaf, upload a zip containing `main.tex` and the
+`figures/` folder (New Project → Upload Project). It compiles with
+pdfLaTeX or XeLaTeX. To rebuild the figures locally, run
+`python paper/make_figures.py` (requires matplotlib and numpy).
 
 ## Research components
 
