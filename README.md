@@ -13,7 +13,7 @@ Platforms: Integrating MAPPO, Distributional Reinforcement Learning,
 Adaptive Risk, LLM/RAG Guidance, and Explainable AI** (IEEE conference format)
 
 Authors: Uday Kiran, Santhosh, Rathan, Samhitha, and Dr. Nitesh Funde,
-Department of Artificial Intelligence, SVNIT Surat, India.
+Department of Artificial Intelligence, SVNIT Surat, India
 
 | File | Contents |
 |---|---|
