@@ -27,6 +27,90 @@ To build on Overleaf, upload a zip containing `main.tex` and the
 pdfLaTeX or XeLaTeX. To rebuild the figures locally, run
 `python paper/make_figures.py` (requires matplotlib and numpy).
 
+```bash
+git clone https://github.com/UdayKiran589/gt-food-delivery-marl.git
+cd gt-food-delivery-marl
+```
+
+## Dataset and model resources
+
+The agents train on trajectories from a custom two-platform market
+simulator. The public datasets below are used only to calibrate the
+simulator (demand patterns, delivery times, costs, restaurant prices);
+agents never learn directly from the raw records.
+
+| Resource | Used for | Link |
+|---|---|---|
+| Delivery Center: Food & Goods Orders in Brazil | Hourly order demand, delivery-cycle times, hub activity, delivery costs | https://www.kaggle.com/datasets/nosbielcs/brazilian-delivery-center |
+| Zomato Bangalore Restaurants | Restaurant price levels, popularity, online-ordering behaviour | https://www.kaggle.com/datasets/himanshupoddar/zomato-bangalore-restaurants |
+| FLAN-T5-Small (Google) | Language-model action prior in Models 4 and 5 | https://huggingface.co/google/flan-t5-small |
+
+The notebooks download both datasets automatically with `kagglehub`:
+
+```python
+import kagglehub
+dc_dir  = kagglehub.dataset_download("nosbielcs/brazilian-delivery-center")
+zom_dir = kagglehub.dataset_download("himanshupoddar/zomato-bangalore-restaurants")
+```
+
+FLAN-T5-Small is loaded through Hugging Face `transformers`
+(`AutoModelForSeq2SeqLM` / `AutoTokenizer`). The model ID can be overridden
+with the `FDM_M4_LLM_ID` environment variable. On Kaggle, the Model 5
+notebook can instead use the attached model input
+(`Input → Add Input → Models → google/flan-t5`).
+
+## Implementation environment and setup
+
+### Original environment
+
+All experiments were developed and run in **Kaggle notebooks** (Python 3,
+PyTorch with CUDA GPU acceleration). The notebooks read inputs from
+`/kaggle/input/...` and write outputs to `/kaggle/working/`. One Model 2
+notebook also contains an optional Google Colab download helper
+(`google.colab.files`).
+
+### Python packages used
+
+| Purpose | Packages |
+|---|---|
+| Deep learning / RL | `torch` |
+| Language model | `transformers` (FLAN-T5-Small) |
+| Data handling | `numpy`, `pandas`, `scikit-learn` |
+| Dataset download | `kagglehub` |
+| Plotting and notebook UI | `matplotlib`, `ipywidgets`, `IPython` |
+
+These are taken from the notebooks' imports. Exact versions have not
+yet been pinned (see `documentation/ENVIRONMENT_NOTES.md`).
+
+### Option A: Run on Kaggle (recommended)
+
+1. Create a new Kaggle notebook and upload the notebook you want from
+   `source/` (for example `source/model4/GT_Model4_ADAPTIVE_LLM_RAG_CHECKPOINTED.ipynb`).
+2. Under **Settings**, turn on **Internet** (for `kagglehub` and Hugging Face downloads) and choose a **GPU** accelerator.
+3. For Models 3–5, attach the required upstream checkpoint as a Kaggle
+   dataset or model input (see the cautions under *Research integrity* below).
+4. Run all cells.
+
+### Option B: Run locally
+
+```bash
+python -m venv .venv
+# Windows: .venv\Scripts\activate      Linux/macOS: source .venv/bin/activate
+pip install torch transformers numpy pandas scikit-learn matplotlib kagglehub ipywidgets jupyter
+jupyter notebook
+```
+
+- Install the CUDA build of PyTorch from https://pytorch.org if you have an NVIDIA GPU. CPU also runs but is slow.
+- `kagglehub` needs Kaggle API credentials (`~/.kaggle/kaggle.json`, or the `KAGGLE_USERNAME`/`KAGGLE_KEY` environment variables). Never commit these files.
+- Replace the `/kaggle/input` and `/kaggle/working` paths in the notebook with local folders.
+
+### Seeds and key settings
+
+The main training seed is `700` (Models 3–5). The Model 5 normal and
+genuine-shock evaluations use separate seeds that are defined in the
+notebook. Evaluation episodes are 168 decision steps long. The genuine-shock
+condition raises the demand-volatility parameter from 0.12 to 0.30.
+
 ## Research components
 
 | Model | Research focus | Repository status |
